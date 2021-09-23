@@ -1,0 +1,20 @@
+Wellington Gouveia
+Variavel
+123
+12.3
+wwwwwww
+22NomeVariavelErrada
+12,5
++
+-
+/
+*
+%
+>
+<
+>=
+||
+,
+.
+;
+&&
