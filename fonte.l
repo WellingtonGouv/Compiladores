@@ -5,7 +5,6 @@
 DIGITO  [0-9]
 ID      [A-Za-z][A-Za-z0-9]*
 ESPACO  [\t\r" "]
-SIMBOLO [\w=+-*/()]
 
 %%
 
