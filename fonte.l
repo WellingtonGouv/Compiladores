@@ -61,6 +61,11 @@ comentar uma linha por vez */
 } /*Apresenta erro em qualquer coisa que não for uma
 regra válida*/
 
+.+{ID} {
+    printf("Identificador inválido: %s - ", yytext);
+    printf("Linha: %d\n", linhas);
+} /*reconhece erro em identificador que começa com token invalido*/
+
 %%
 
 int yywrap();
