@@ -910,15 +910,16 @@ YY_RULE_SETUP
 #line 64 "fonte.l"
 {
     printf("Identificador inválido: %s - ", yytext);
+    erros++;
     printf("Linha: %d\n", linhas);
 } /*reconhece erro em identificador que começa com token invalido*/
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 69 "fonte.l"
+#line 70 "fonte.l"
 ECHO;
 	YY_BREAK
-#line 922 "lex.yy.c"
+#line 923 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1923,7 +1924,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 69 "fonte.l"
+#line 70 "fonte.l"
 
 
 int yywrap();

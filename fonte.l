@@ -63,6 +63,7 @@ regra válida*/
 
 .+{ID} {
     printf("Identificador inválido: %s - ", yytext);
+    erros++;
     printf("Linha: %d\n", linhas);
 } /*reconhece erro em identificador que começa com token invalido*/
 
