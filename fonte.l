@@ -5,7 +5,13 @@
 DIGITO  [0-9]
 ID      [A-Za-z][A-Za-z0-9]*
 ESPACO  [\t\r" "]
-SIMBOLO [\w=+-*/()><|&%!,:;]
+OP_MAT  "+"|"-"|"/"|"*"|"%"
+OP_LOG  "||"|"&&"|"!"
+OP_REL  ">"|">="|"<"|"<="|"=="|"!="
+ATRIB   "="
+PONT_V  ";"
+PONT  "."
+VIRGULA ","
 
 %%
 
@@ -23,28 +29,13 @@ SIMBOLO [\w=+-*/()><|&%!,:;]
 
 {DIGITO}+"."{DIGITO}+ {printf("Real: %s\n",yytext);}
 
-"+" {printf("Operador de soma: %s\n",yytext);}
-"/" {printf("Operador de divisão: %s\n",yytext);}
-"*" {printf("Operador de multiplicação: %s\n",yytext);}
-"-" {printf("Operador de subtração: %s\n",yytext);}
-"%" {printf("Operador de resto: %s\n",yytext);}
-
-">" {printf("Operador de maior: %s\n",yytext);}
-"<" {printf("Operador de menor: %s\n",yytext);}
-">=" {printf("Operador de maior ou igual: %s\n",yytext);}
-"<=" {printf("Operador de menor ou igual: %s\n",yytext);}
-"=" {printf("Operador de atribuição: %s\n",yytext);}
-"==" {printf("Operador de igual: %s\n",yytext);}
-"!=" {printf("Operador de diferente: %s\n",yytext);}
-
-"||" {printf("Operador OR: %s\n",yytext);}
-"&&" {printf("Operador AND: %s\n",yytext);}
-"!" {printf("Operador NOT: %s\n",yytext);}
-
-"," {printf("Pontuação virgula: %s\n",yytext);}
-";" {printf("Pontuação ponto e virgula: %s\n",yytext);}
-"." {printf("Pontuação ponto: %s\n",yytext);}
-":" {printf("Pontuação dois pontos: %s\n",yytext);}
+{OP_MAT} {printf("Operador matematico: %s\n",yytext);} /*Identifica operadores matematicos*/
+{OP_LOG} {printf("Operador logico: %s\n",yytext);} /*Identifica operadores logicos*/
+{OP_REL} {printf("Operador relacional: %s\n",yytext);} /*Identifica operadores relacionais*/
+{ATRIB} {printf("Sinal de atribuicao: %s\n",yytext);}
+{PONT_V} {printf("Sinal de ponto e virgula: %s\n",yytext);}
+{PONT} {printf("Sinal de ponto: %s\n",yytext);}
+{VIRGULA} {printf("Sinal de virgula: %s\n",yytext);}
 
 "//"[^\n]* {
     printf("Comentários\n");
@@ -61,11 +52,6 @@ comentar uma linha por vez */
 } /*Apresenta erro em qualquer coisa que não for uma
 regra válida*/
 
-.+{ID} {
-    printf("Identificador inválido: %s - ", yytext);
-    erros++;
-    printf("Linha: %d\n", linhas);
-} /*reconhece erro em identificador que começa com token invalido*/
 
 %%
 

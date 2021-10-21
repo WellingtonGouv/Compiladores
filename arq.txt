@@ -1,21 +1,21 @@
-Wellington Gouveia
-Variavel
+Wellington
+
+variavel
 123
 12.3
-wwwwwww
+wellington123
 22NomeVariavelErrada
 12,5
 +
 -
-/
-*
-%
->
+$
 <
 >=
+#
+!
 ||
+?
 ,
 .
 ;
-&&
-$variavel 
+//Este é um comentário
